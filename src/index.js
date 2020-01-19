@@ -1,6 +1,19 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const routers = require('./routers');
+
+dotenv.config();
 
 const app = express();
+
+mongoose.connect(process.env.MONGODB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+app.use(express.json());
+app.use(routers);
 
 app.get('/', (req, res) => {
   res.json({
