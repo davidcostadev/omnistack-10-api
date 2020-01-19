@@ -6,6 +6,16 @@ const create = async (req, res) => {
   const { githubUserName, techs, latitude, longitude } = req.body;
 
   try {
+    let dev = await Dev.findOne({
+      githubUserName,
+    });
+
+    if (dev) {
+      return res.status(422).json({
+        error: 'This user is already registered',
+      });
+    }
+
     const response = await axios.get(`https://api.github.com/users/${githubUserName}`);
     const { name = login, avatar_url: avatarUrl, bio } = response.data;
 
@@ -16,7 +26,7 @@ const create = async (req, res) => {
       coordinates: [latitude, longitude],
     };
 
-    const dev = await Dev.create({
+    dev = await Dev.create({
       githubUserName,
       name,
       avatarUrl,
