@@ -1,6 +1,7 @@
 const axios = require('axios');
 const get = require('lodash.get');
 const Dev = require('../models/Dev');
+const { stringToArray } = require('../utils/stringToArray');
 
 const create = async (req, res) => {
   const { githubUserName, techs, latitude, longitude } = req.body;
@@ -19,7 +20,7 @@ const create = async (req, res) => {
     const response = await axios.get(`https://api.github.com/users/${githubUserName}`);
     const { name = login, avatar_url: avatarUrl, bio } = response.data;
 
-    const techsArray = techs.split(',').map(tech => tech.trim());
+    const techsArray = stringToArray(techs);
 
     const location = {
       type: 'Point',
@@ -41,7 +42,7 @@ const create = async (req, res) => {
       error: get(error, 'response.data.message', error.message),
     };
     console.error(response);
-    return res.status(get(error, 'response.status', 400)).json();
+    return res.status(get(error, 'response.status', 400)).json(response);
   }
 };
 

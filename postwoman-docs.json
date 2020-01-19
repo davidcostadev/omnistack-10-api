@@ -34,7 +34,7 @@
         "headers": [],
         "params": [],
         "bodyParams": [],
-        "rawParams": "{\n    \"githubUserName\": \"davidcostadev\",\n    \"techs\": \"ReactJS, NodeJS, express\"\n}",
+        "rawParams": "{\n    \"githubUserName\": \"davidcostadev\",\n    \"techs\": \"ReactJS, NodeJS, express\",\n    \"latitude\": -5.7566533,\n    \"longitude\": -35.2697794\n}",
         "rawInput": true,
         "contentType": "application/json",
         "requestType": "",
@@ -78,7 +78,40 @@
         "requestType": "",
         "name": "[delete] /devs/:id",
         "collection": 0
+      },
+      {
+        "url": "https://ab064234.ngrok.io",
+        "path": "/search?latitude=-5.7566533&longitude=-35.2697794&techs=ReactJS,NodeJS",
+        "method": "GET",
+        "auth": "None",
+        "httpUser": "",
+        "httpPassword": "",
+        "passwordFieldType": "password",
+        "bearerToken": "",
+        "headers": [],
+        "params": [
+          {
+            "key": "latitude",
+            "value": "-5.7566533"
+          },
+          {
+            "key": "longitude",
+            "value": "-35.2697794"
+          },
+          {
+            "key": "techs",
+            "value": "ReactJS,NodeJS"
+          }
+        ],
+        "bodyParams": [],
+        "rawParams": "{\n    \"githubUserName\": \"davidcostadev\",\n    \"techs\": \"ReactJS, NodeJS, express\",\n    \"latitude\": -5.7566533,\n    \"longitude\": -35.2697794\n}",
+        "rawInput": true,
+        "contentType": "",
+        "requestType": "",
+        "name": "[get] /search",
+        "collection": 0
       }
-    ]
+    ],
+    "collectionIndex": 0
   }
 ]
