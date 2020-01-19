@@ -35,7 +35,7 @@ routers.delete('/devs/:id', async (req, res) => {
 });
 
 routers.post('/devs', async (req, res) => {
-  const { githubUserName, techs } = req.body;
+  const { githubUserName, techs, latitude, longitude } = req.body;
 
   try {
     const response = await axios.get(`https://api.github.com/users/${githubUserName}`);
@@ -43,12 +43,18 @@ routers.post('/devs', async (req, res) => {
 
     const techsArray = techs.split(',').map(tech => tech.trim());
 
+    const location = {
+      type: 'Point',
+      coordinates: [latitude, longitude],
+    };
+
     const dev = await Dev.create({
       githubUserName,
       name,
       avatarUrl,
       bio,
       techs: techsArray,
+      location,
     });
 
     return res.json(dev);
