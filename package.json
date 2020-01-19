@@ -1,0 +1,24 @@
+{
+  "name": "omnistack-10-api",
+  "version": "1.0.0",
+  "description": "API with express for Omnistack 10 week",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidcostadev/omnistack-10-api.git"
+  },
+  "keywords": [
+    "omnistack",
+    "express",
+    "api"
+  ],
+  "author": "David Costa <davidcostadev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidcostadev/omnistack-10-api/issues"
+  },
+  "homepage": "https://github.com/davidcostadev/omnistack-10-api#readme"
+}
